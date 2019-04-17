@@ -1,12 +1,18 @@
+#include <omp.h>
+#include <iostream>
 #include <stdio.h>
 #include <time.h>
-#define MAX 16
+#include <cstdlib>
+#define MAX 1000000
 
-int a[] = { 1, 5, 7, 10, 12, 14, 15, 18, 20, 22, 25, 27, 30, 64, 110, 220};
-int max =0;
-
+int max;
 int main()
 {
+    int a[MAX];
+    srand(time(NULL));
+    for (int j = 0; j < MAX; ++j)
+	a[j] = rand();
+
     clock_t time;
     time = clock();
     for (int i = 0; i < MAX; ++i)
